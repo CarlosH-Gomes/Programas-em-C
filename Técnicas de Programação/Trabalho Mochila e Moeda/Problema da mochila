@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main()
+{
+	int i;
+	int j;
+	int VPreco[4];
+	int VPreco2[4];
+	int VPreco3[4];
+	int VPeso[4];
+	int VPeso2[4];
+	int VPeso3[4];
+	int maior;
+	int maiorPreco;
+	int maiorPeso;
+	
+	
+	for(j=0; j<=3; j++)
+	{
+		for(i=0; i<=3; i++)
+		{
+			if(maior < VPreco[i])
+			{
+				maiorPreco=VPreco[i];
+				maiorPeso=VPeso[i];
+			}
+		}	
+		VPreco2[j]=VPreco[i];
+		VPeso2[j]=VPeso[i];
+	}
+		VPreco3[0]=VPreco2[0];
+		VPeso3[0]=VPeso2[0];
+		j=0;
+		for(i=1; i<=3; i++)
+		{
+			if(VPeso2[0] + VPeso2[i] <= 10)
+			{
+				VPreco3[j]=VPreco2[i];
+				VPeso3[j]=VPeso3[i];
+				j=j+1;
+			}
+		}	
+		maior = 0;
+		for(i=0; i<=3; i++)
+		{
+			printf("Preço: %d \n", VPreco[i]);
+			printf("Peso: %d \n", VPeso[i]);
+			maior = VPreco[i] + maior;
+		}
+		printf("\n Custo Total: R$%d \n", maior);
+		
+}
